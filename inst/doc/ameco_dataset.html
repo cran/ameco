@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Eric Persson" />
+
+<meta name="date" content="2015-10-23" />
+
+<title>AMECO Dataset</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link href="data:text/css,body%20%7B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20max%2Dwidth%3A%20700px%3B%0A%20%20overflow%3A%20visible%3B%0A%20%20padding%2Dleft%3A%202em%3B%0A%20%20padding%2Dright%3A%202em%3B%0A%20%20font%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20line%2Dheight%3A%201%2E35%3B%0A%7D%0A%0A%23header%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0A%0A%23TOC%20%7B%0A%20%20clear%3A%20both%3B%0A%20%20margin%3A%200%200%2010px%2010px%3B%0A%20%20padding%3A%204px%3B%0A%20%20width%3A%20400px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20border%2Dradius%3A%205px%3B%0A%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20font%2Dsize%3A%2013px%3B%0A%20%20line%2Dheight%3A%201%2E3%3B%0A%7D%0A%20%20%23TOC%20%2Etoctitle%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%20%20font%2Dsize%3A%2015px%3B%0A%20%20%20%20margin%2Dleft%3A%205px%3B%0A%20%20%7D%0A%0A%20%20%23TOC%20ul%20%7B%0A%20%20%20%20padding%2Dleft%3A%2040px%3B%0A%20%20%20%20margin%2Dleft%3A%20%2D1%2E5em%3B%0A%20%20%20%20margin%2Dtop%3A%205px%3B%0A%20%20%20%20margin%2Dbottom%3A%205px%3B%0A%20%20%7D%0A%20%20%23TOC%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dleft%3A%20%2D2em%3B%0A%20%20%7D%0A%20%20%23TOC%20li%20%7B%0A%20%20%20%20line%2Dheight%3A%2016px%3B%0A%20%20%7D%0A%0Atable%20%7B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dcolor%3A%20%23DDDDDD%3B%0A%20%20border%2Dstyle%3A%20outset%3B%0A%20%20border%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0A%20%20border%2Dwidth%3A%202px%3B%0A%20%20padding%3A%205px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%20%20line%2Dheight%3A%2018px%3B%0A%20%20padding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0A%20%20border%2Dleft%2Dstyle%3A%20none%3B%0A%20%20border%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Ap%20%7B%0A%20%20margin%3A%200%2E5em%200%3B%0A%7D%0A%0Ablockquote%20%7B%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20padding%3A%200%2E25em%200%2E75em%3B%0A%7D%0A%0Ahr%20%7B%0A%20%20border%2Dstyle%3A%20solid%3B%0A%20%20border%3A%20none%3B%0A%20%20border%2Dtop%3A%201px%20solid%20%23777%3B%0A%20%20margin%3A%2028px%200%3B%0A%7D%0A%0Adl%20%7B%0A%20%20margin%2Dleft%3A%200%3B%0A%7D%0A%20%20dl%20dd%20%7B%0A%20%20%20%20margin%2Dbottom%3A%2013px%3B%0A%20%20%20%20margin%2Dleft%3A%2013px%3B%0A%20%20%7D%0A%20%20dl%20dt%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%7D%0A%0Aul%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%7D%0A%20%20ul%20li%20%7B%0A%20%20%20%20list%2Dstyle%3A%20circle%20outside%3B%0A%20%20%7D%0A%20%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dbottom%3A%200%3B%0A%20%20%7D%0A%0Apre%2C%20code%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20color%3A%20%23333%3B%0A%7D%0Apre%20%7B%0A%20%20white%2Dspace%3A%20pre%2Dwrap%3B%20%20%20%20%2F%2A%20Wrap%20long%20lines%20%2A%2F%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20margin%3A%205px%200px%2010px%200px%3B%0A%20%20padding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Acode%20%7B%0A%20%20font%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0A%20%20font%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0A%20%20padding%3A%202px%200px%3B%0A%7D%0A%0Adiv%2Efigure%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0A%20%20background%2Dcolor%3A%20%23FFFFFF%3B%0A%20%20padding%3A%202px%3B%0A%20%20border%3A%201px%20solid%20%23DDDDDD%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20margin%3A%200%205px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20font%2Dsize%3A%2035px%3B%0A%20%20line%2Dheight%3A%2040px%3B%0A%7D%0A%0Ah2%20%7B%0A%20%20border%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20padding%2Dbottom%3A%202px%3B%0A%20%20font%2Dsize%3A%20145%25%3B%0A%7D%0A%0Ah3%20%7B%0A%20%20border%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20font%2Dsize%3A%20120%25%3B%0A%7D%0A%0Ah4%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0A%20%20margin%2Dleft%3A%208px%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Ah5%2C%20h6%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23ccc%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Aa%20%7B%0A%20%20color%3A%20%230033dd%3B%0A%20%20text%2Ddecoration%3A%20none%3B%0A%7D%0A%20%20a%3Ahover%20%7B%0A%20%20%20%20color%3A%20%236666ff%3B%20%7D%0A%20%20a%3Avisited%20%7B%0A%20%20%20%20color%3A%20%23800080%3B%20%7D%0A%20%20a%3Avisited%3Ahover%20%7B%0A%20%20%20%20color%3A%20%23BB00BB%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%0A%2F%2A%20Class%20described%20in%20https%3A%2F%2Fbenjeffrey%2Ecom%2Fposts%2Fpandoc%2Dsyntax%2Dhighlighting%2Dcss%0A%20%20%20Colours%20from%20https%3A%2F%2Fgist%2Egithub%2Ecom%2Frobsimmons%2F1172277%20%2A%2F%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Keyword%20%2A%2F%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%2F%2A%20DataType%20%2A%2F%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%2F%2A%20DecVal%20%28decimal%20values%29%20%2A%2F%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20BaseN%20%2A%2F%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Float%20%2A%2F%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Char%20%2A%2F%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20String%20%2A%2F%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%2F%2A%20Comment%20%2A%2F%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%2F%2A%20OtherToken%20%2A%2F%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20AlertToken%20%2A%2F%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Function%20calls%20%2A%2F%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%2F%2A%20ErrorTok%20%2A%2F%0A%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">AMECO Dataset</h1>
+<h4 class="author"><em>Eric Persson</em></h4>
+<h4 class="date"><em>2015-10-23</em></h4>
+</div>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This package contains the entire <a href="http://ec.europa.eu/economy_finance/db_indicators/ameco/index_en.htm">European Commission Annual macro-economic (AMECO) database</a> in a format amenable to analysis in R.</p>
+<p>The AMECO database was last updated: 5 May 2015.</p>
+</div>
+<div id="simple-example" class="section level2">
+<h2>Simple example</h2>
+<p>The dataset is in a clean, long format:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ameco)
+<span class="kw">head</span>(ameco)</code></pre>
+<pre><code>## Source: local data frame [6 x 8]
+## 
+##                code                           country   sub.chapter
+##               (chr)                             (chr)         (chr)
+## 1 EU28.1.0.0.0.NPTD                    European Union 01 Population
+## 2 EU15.1.0.0.0.NPTD     European Union (15 countries) 01 Population
+## 3 EA19.1.0.0.0.NPTD                         Euro area 01 Population
+## 4 EA12.1.0.0.0.NPTD          Euro area (12 countries) 01 Population
+## 5 DU15.1.0.0.0.NPTD EU15 (including D_W West-Germany) 01 Population
+## 6 DA12.1.0.0.0.NPTD EA12 (including D_W West-Germany) 01 Population
+## Variables not shown: title (chr), unit (chr), cntry (chr), year (dbl),
+##   value (dbl)</code></pre>
+<p>Filtering with the <code>sub.chapter</code> variable allows you to easily find the variable of interest:</p>
+<pre class="sourceCode r"><code class="sourceCode r">ameco %&gt;%<span class="st"> </span>
+<span class="st">  </span>dplyr::<span class="kw">filter</span>(sub.chapter ==<span class="st"> &quot;01 Population&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span>.$title %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">unique</span>()</code></pre>
+<pre><code>## [1] &quot;Total population (National accounts)&quot;
+## [2] &quot;Total population&quot;                    
+## [3] &quot;Population: 0 to 14 years&quot;           
+## [4] &quot;Population: 15 to 64 years&quot;          
+## [5] &quot;Population: 65 years and over&quot;</code></pre>
+<p>Being interested in the total population of a few countries, we can easily subset the data and plot the results:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+ameco %&gt;%<span class="st"> </span>
+<span class="st">  </span>dplyr::<span class="kw">filter</span>(title ==<span class="st"> &quot;Total population&quot;</span>,
+         year ==<span class="st"> </span><span class="dv">2015</span>,
+         cntry %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;USA&quot;</span>, <span class="st">&quot;JPN&quot;</span>, <span class="st">&quot;DEU&quot;</span>, <span class="st">&quot;FRA&quot;</span>, <span class="st">&quot;ESP&quot;</span>, <span class="st">&quot;ITA&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(country, -value), <span class="dt">y =</span> value /<span class="st"> </span><span class="dv">1000</span>)) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">theme_bw</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Population (millions)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Total population&quot;</span>)</code></pre>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAGACAMAAABFpiBcAAAAkFBMVEUAAAAAADoAAGYAOmYAOpAAZmYAZrY6AAA6ADo6AGY6OgA6OmY6OpA6ZmY6kJA6kLY6kNtZWVlmAABmADpmAGZmOgBmZgBmZmZmkJBmtv9/f3+QOgCQOjqQkDqQkGaQ2/+2ZgC2/7a2/9u2///bkDrbtrbb25Db/9vb///l5eX6+vr/tmb/25D//7b//9v////QpTzeAAAACXBIWXMAAA7DAAAOwwHHb6hkAAATQklEQVR4nO2dC3viyBVEZcfBdrJJHGY3WQ+bQAaSxcPr//+7qKUWSIiGbt2+ntKl6ttZv6BPFzrWyyCKA8MAp/jRE2CYa6GgDHQoKAMdCspAh4Iy0KGgDHQoKAMdCspAh4JGZVMc8x6+1X72tE4d+cJ9hgxjNhQ0KiFBV4/L1lcZBHUDUtBWKGh0LnmzyC1od0CGgsaHgv6IUNDonFTaz8pNfflF9XHidwDe2rcoPVsURS1bc+v2d+tbuv/Xn/kR6gGbH/q7lV/+77ka/x5DQaNz1G/7XO2MPi69oKt65/StI+g/3Lce5q1bt797JmgzQkvQ092qbxb3aigFjc5Rv4Vba9b/d1vk3dTJt5s2a8P6Js7N+iatWx+/2xX0NEI1YPXD091KQctPV9XX9xcKGp1Gv0ok92XpUrPL6NZyHUGdidVNOrc+fvd8E9+McBS0dbfqrg317kJBo9OotH2uN7arUrdKUL817ghai1vepHfr6tMzQY8jHAVt3e10208uDBEKGp2QoLup2z8828QnCXoagYKeh4JGJ7SJ31Tn7s8EvbmJb++3nka4vImnoExELh4klcpt3CflSrB7kFQdtfcOklrfrU4qNYI2I1QD9g6SKCgTkaMibovszyGtimLivyyadZ3L4uFPzbml1q1b361OfP7hl9Mm3v9g1ZxmOt2NgjJROTtRX531qVZ7lUvvi2Zv0WXx+G3mz863bt3+bmni0+/NQdJxhGrA308n6idHLgVlMubyXyz5d8z0UFCVUNBcoaAqoaC5QkFVQkFzhYIy0KGgDHQoKAMdCspAh4Iy0BEI+pVh9JJB0OF3/Rh+VxCABQJ0BQpKAnQFCkoCdAUKSgJ0BQpKAnQFCkoCdAUKSgJ0BQpKAnQFCkoCdAUKSgJ0BQpKAnQFCkoCdAUKSgJ0BQpKAnSF/IL+XSmD5gb92KMQoCtQUGEMEKArUFBhDBCgK1BQYQwQoCtQUGEMEKArUFBhDBCgK1BQYQwQoCtQUGEMEKArUFBhDBCgK1BQYQwQoCtQUGEMEKArUFBhDBCgK1BQYQwQoCtQUGEMEKArUFBhDBCgK1BQYQwQoCvECrqp3yNtP6veH81/6A7hQ0HHRoCuECno9mV+2Li3QZ24/5oP3SF8KOjYCNAVEjbxuy/z8r/D9nXpP5wN4UNBx0aArpAg6Opp7aws7fQf3N3KfP3oREvQD+YeEy3o9vmhXm12BG077qMlaOyvXCfQKwcUAnSFhDVouQ9KQS0SoCuk7YNSUIsE6Ao8SBLGAAG6QqSg7hTT9qc1TzNZJEBXiF2Drorq1Pxu2v7QHcKHgo6NAF2Bf+oUxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6AgUVxgABugIFFcYAAboCBRXGAAG6Qg5Bv3eiJej3IfkYdK87I0BX4BpUGAME6AoUVBgDBOgKFFQYAwToChRUGAME6AoUVBgDBOgKFFQYAwToChRUGAME6AoUVBgDBOgKFFQYAwToChRUGAME6ApBQTdFnffoIXwo6NgI0BUuC7qbFpP6s/2seFzGDeFDQcdGgK5wUdDdz8vgV+EhfCjo2AjQFbgPKowBAnQFCiqMAQJ0haCgu+nbYVUUT+voIXwo6NgI0BWCgi6e1tvnyWExiR7Ch4KOjQBdISTobvp+2BTlv1vH8BR09AToCtcEXZRyriioeQJ0hfAmfrKbPq13U27izROgK1w5SCoe5vvZbT8p6NgJ0BV4mkkYAwToChRUGAME6ApBQfez+skiPEgyT4CuED5Ium3m2RA+FHRsBOgK4dNMb6lD+FDQsRGgK1w7D5o4hA8FHRsBukJI0KgTTN0hfCjo2AjQFa48oz52FUpBR06ArhDexBc8ir8TAnQFngcVxgABugIFFcYAAbpCWNDtc7mBf5jHD+FDQcdGgK5w5SDJnQhd8WXH9gnQFcKnmeoT9avbr/mgoCMnQFe4daKez6i3T4CuwDWoMAYI0BW4DyqMAQJ0BR7FC2OAAF2B50GFMUCArkBBhTFAgK5AQYUxQICucPnqdtO38yeLuD3S9+PVGDsXZaSgIydAV4hcg1YXGimPmBb1xXAW7WviUNCRE6ArRAq6eVqXq8333Zf5Yfu69B/OhvChoGMjQFdI2Act16LOytJO/8HdrczXj060BP1g7jGBfdDimNO+5upp3RO07biPlqCDfv+gVw4oBOgK8WtQdxkxCmqRAF0hWtCV+6MSBbVIgK4QK2h9GUYeJFkkQFeI3AfdvtTrS55mMkiArhC5Bl34N/Uq1XXG+g/dIXwo6NgI0BX4p05hDBCgK1BQYQwQoCvE/i0+YggfCjo2AnQFrkGFMUCArkBBhTFAgK5w7U0UuIm/DwJ0hfCrOiPeBLE7hA8FHRsBugIvYCuMAQJ0hVuvi08YwoeCjo0AXSG4D9r8cTN+CB8KOjYCdIWwoM88SLoTAnQFXqNeGAME6Ao8SBLGAAG6Ag+ShDFAgK7AgyRhDBCgK/BdPoQxQICuwL/FC2OAAF2BggpjgABd4fLzQX9eBr8KD+FDQcdGgK5weQ1a7oH606Cdy4RdH8KHgo6NAF3hyiXAC/9CudghfCjo2AjQFbgPKowBAnQFCiqMAQJ0BQoqjAECdAUKKowBAnQFCiqMAQJ0BQoqjAECdIWgoPsZ/xZ/JwToCkFBF7fNPBvCh4KOjQBdIfxsJj4f9F4I0BX4jHphDBCgK/A1ScIYIEBXuPK3+NhVKAUdOQG6Ap9RL4wBAnQFngcVxgABugIFFcYAAbpCWNDq0iIPES/tpKAjJ0BXuHKQ5E6ErviEZfsE6Aq3Ltywun2ZUAo6cgJ0hVsn6jcRR/HfO9ES9PuQfAy6150RoCtwDSqMAQJ0Be6DCmOAAF2BR/HCGCBAV+B5UGEMEKArUFBhDBCgK1BQYQwQoCvwvTqFMUCArsA1qDAGCNAVgifqv9TH7zEn6rtfUtCxEaAr3BJ0RUHNE6ArXBZ0URxz+7VzFHTkBOgKt9agCUP4UNCxEaAr8CBJGAME6Ap8v3hhDBCgK4SvLPK0Xk0O22c+WcQ8AbrCtSuLbJ7WfLrdHRCgK1x7wvL2dVn9ixzCh4KOjQBd4doTlt2RPAW1T4CuENwHdWfoF2/cxN8BAbpC+DTTYuKO5CMuwkhBR06ArsDzoMIYIEBXGKGg6oCkQC9dEAAFzQtICvTSBQEoPGH59GQRvL8kqQOSAr10QQBcg+YFJAV66YIAKGheQFKgly4IQOcvSdzERwV66YIAFNegEa/4oKDKoaAuoU384vZ7KVBQ3VBQl5CggC+aUwckBXrpggA0BQV80Zw6ICnQSxcEoCjobspN/PVAL10QgOZR/O0nM1FQ5VBQF54HpaCQBAraByQFeumCAHQErTbyEVt4CqocCurSvwR4dXHlVcQllimobiioS/81SfXrjRd4L/lQByQFeumCADQvfcMT9TcCvXRBAJprUMAXzakDkgK9dEEAOvug1RvQIL4NjTogKdBLFwSg+nS728+4o6C6oaAut8+DVpdw2M8qXf2H7hA+6v6oA5ICvXRBAJ8i6G7qlFxMqifg+Q/dIXzU/VEHJAV66YIAdATtvtPcqvhLuQb1F8PpXhOHguqGgrrceq/O/66bS4mVdvoP7m5lvn50ouXP5wEYoMS/2/FFQduO+2j583mApECvfkAAWpdfdDmdqKegFwO9dEEAWpdfdOEa9Eagly4I4DP2QQ+NnDxI6gZ66YIAPuMo3p8H5Wmm80AvXRDAJ56o91cM7Vw4lILqhoK68Bn1FBSSEBB0VW7ebz9NpDuEj7o/6oCkQC9dEEB+Qd0T6WPeIqkzhI+6P+qApEAvXRBAdkHrc0wRTwXtDOGj7o86ICnQSxcEoHABW7fyjLlwWHsIH3V/1AFJgV66IAAKmheQFOilCwKgoHkBSYFeuiAACpoXkBTopQsCoKB5AUmBXrogAAVB7/tdPvQJKaGgLvxLEgWFJFDQPoCCAhEoaB9AQYEIFLQPoKBABAraB1BQIAIF7QMoKBCBgvYBFBSIQEH7AAoKRKCgfQAFBSJQ0D6AggIRKGgfQEGBCBS0D6CgQAQK2gdQUCACBe0DKCgQgYL2ASYICaGgeR97dYAJQkIoaN7HXh1ggpAQCpr3sVcHmCAkhILmfezVASYICaGgeR97dYAFgjogKRQ0K8ACQR2QFAqaFWCBoA5ICgXNCrBAUAckhYJmBVggqAOSQkGzAiwQ1AFJoaBZARYI6oCkUNCsAAsEdUBSKGhWgAWCOiApFDQrwAJBHZAUCpoVYIGgDkjKDxb0eydaD83nASwQ1AFJ+Rh2NxeuQfsACwR1QFK4ic8KsEBQBySFgmYFWCCoAz7rV4CC9gEWCOoAChqcuDrAAkEdQEGDE1cHWCCoAyhocOLqAAsEdQAFDU5cHWCBoA6goMGJqwMsENQBFDQ4cXWABYI6gIIGJ64OsEBQB1DQ4MTVARYI6gAKGpy4OsACQR1AQYMTVwdYIKgDKGhw4uoACwR1AAUNTlwdYIGgDqCgwYmrAywQ1AEUNDhxdYAFgjqAggYnrg6wQFAHUNDgxNUBFgjqAAoanLg6wAJBHUBBgxNXB1ggqAMoaHDi6gALBHUABQ1OXB1ggaAOoKDBiasDLBDUARQ0OHF1gAWCOoCCBieuDrBAUAdQ0ODE1QEWCOoAChqcuDrAAkEdQEGDE1cHWCCoAyhocOLqAAsEdQAFDU5cHWCBoA6goMGJqwMsENQBFDQ4cXWABYI6gIIGJ64OsEBQB1DQ4MTVARYI6gAKGpy4OsACQR1AQYMTVwdYIKgDKGhw4uoACwR1AAUNTlwdYIGgDqCgwYmrAywQ1AHYgu5nxeOSggIT1AHYgi4m7j8KiktQB0ALuvsyP2xfm1UoBQUkqAOgBXVyOkkpKCxBHTASQYsyXz8YRiv516ApEbzJKAjAAgG6AgUlAbpC/oOklNz3Y49CgK6Q/zRTSu77sUchQFcYJuhuGj5Rn5L7fuxRCNAV8v+pMyX3/dijEKArUFASoCtQUBKgK1BQEqArUFASoCtQUBKgK1BQEqArUFASoCvkEHR4CsF9MQAWCNgV5IIKok7Vr2WAMIoKFPR+CaOoQEHvlzCKCj9GUIaJDAVloENBGehQUAY6FJSBDgVloJNX0PoVdafX1Z0+a9K8KHQ/K4picsiXPipLdtNynm8aI3eyfXZXGije9UGdhyn3g3Z5qYoouoKef3ES1L32bj+btH8se7R0BN0+vztJ1Q1V+vW6CMr2kPfTLNWM+UGC1h9yPloqi3g/e1MbuxMbgh6XasYxlQTdvv7LbRm3r/+ZFg/z5tWgm6L4Yy1o82u2q368cRuG3dktH+bXSBfR1TiH/W//rrYz9Vd+JpI+zUzLiW3//Mvjt9mvz8Wk3CifM6pXZK8GrT8akBt/2Z242/q/n72gdniaJdIwloJJ93JceZ4vguXwpaAl6PPbYfO49L+v+9n7YfW03k3LD947t2838fdw3988zNu3LDXePK0T0X6c/eyx/PStGbWeybA+pzn4iblN/n7mqpSfv8y7jKbAgNT7oJNql6I7qPuqHNjzh9Vog+olcnrIBZPup1mqZ4vg6MOAIbUEfZn7x8J9y18yxy3u05VzXJvTPmj5/dYtXbNBaHfn6uGu1wlu1Jf58I1OJejCrc39xNxobvzmX4fhvjEQdVyDvvjf3+Og/neke9Wh4Wlt4uuHXDDpi6mW6tkiOPowYDy1TfyyLahbPzzMV11Bq8VR3cP9vHbA37L6VUxztLn3Qy3oxq3tjqMOXQAn6/3EmvVN86/LKBfJatjexFHQs4fjdelXm80DI00j6IkxfNIhxEt/EQxfCnkFrfVzM+sKWk+ttQatV/dlj+rH5a9Xaw3qk7BFaGj1OP7X9/KoafEHSX4YT2oJesbY/fztt2EOtQXtDtpag+ZIs0ROjOGT7uW4VHuLAEXQw8I5OH07tAT1G0W/j+j3Qd1+3KHaqSt/7HotHuatWzbfjUw18NPaj1PvI743o0oEPbh9p3JS9Wq5tcfm/50zFr/+NGw3sS1od9BqH/RlnmtL3HpwPWP4pHs5LtXeIoAR1O2wVYeeR0H3s+LdH6y77cpfm028u2FZx/3Ynd79m/u1O90y8Si+vPnj8nAc559uDv4rmaCnU8/1xM4EPWdshp5qbwt6NujpKD7DFv7gl0iLMXzSF3JcqmeLAEdQgGQ7Jk1PzqONT4vCpDMuAgqaM5nOJ35uFCZNQa/lhwm6fc5xKv2TozJpCsrcSygoAx0KykCHgjLQ+T8QSG7CqELqGQAAAABJRU5ErkJggg==" /></p>
+</div>
+<div id="disclaimer" class="section level2">
+<h2>Disclaimer</h2>
+<p>This package is not affiliated with, nor endorsed by, the European Commission. I aim to update it whenever the AMECO database is updated. If you ever see that it is out-of-date, don’t hesitate to send a pull request and/or remind me to update it.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

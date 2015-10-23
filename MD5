@@ -1,0 +1,12 @@
+36f5172410b2580a8c3a5ad587a25bb9 *DESCRIPTION
+df390c53434517b304ac5db487184641 *NAMESPACE
+415983584e7e17c892a4d837d9dd604b *R/data.R
+955bf4e7de42ace576ef642aaa8a8b43 *README.md
+590ef71e2d3cd632a89f2490a99ce3a3 *build/vignette.rds
+d7bd21bbe6e1bfabae68d846563aae3c *data/ameco.RData
+198a15036d6008e3a45de43d5012c45c *data/datalist
+20dd06ead0cd6dd9a61dbfe36834aa86 *inst/doc/ameco_dataset.R
+3c2cf3637d30ce469d3a3e97f25320d5 *inst/doc/ameco_dataset.Rmd
+e0456dd7101fc43eb4be4b90ab0675a9 *inst/doc/ameco_dataset.html
+8af17ac007b1bda190e55373f65d35d1 *man/ameco.Rd
+3c2cf3637d30ce469d3a3e97f25320d5 *vignettes/ameco_dataset.Rmd
