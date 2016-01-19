@@ -5,7 +5,7 @@ head(ameco)
 
 ## ----find_var------------------------------------------------------------
 ameco %>% 
-  dplyr::filter(sub.chapter == "01 Population") %>% 
+  filter(sub.chapter == "01 Population") %>% 
   .$title %>% 
   unique()
 

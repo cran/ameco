@@ -10,7 +10,7 @@
 
 <meta name="author" content="Eric Persson" />
 
-<meta name="date" content="2015-10-23" />
+<meta name="date" content="2016-01-19" />
 
 <title>AMECO Dataset</title>
 
@@ -54,14 +54,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">AMECO Dataset</h1>
 <h4 class="author"><em>Eric Persson</em></h4>
-<h4 class="date"><em>2015-10-23</em></h4>
+<h4 class="date"><em>2016-01-19</em></h4>
 </div>
 
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>This package contains the entire <a href="http://ec.europa.eu/economy_finance/db_indicators/ameco/index_en.htm">European Commission Annual macro-economic (AMECO) database</a> in a format amenable to analysis in R.</p>
-<p>The AMECO database was last updated: 5 May 2015.</p>
+<p>The AMECO database was last updated: 5 November 2015.</p>
 </div>
 <div id="simple-example" class="section level2">
 <h2>Simple example</h2>
@@ -93,7 +93,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 ##   value (dbl)</code></pre>
 <p>Filtering with the <code>sub.chapter</code> variable allows you to easily find the variable of interest:</p>
 <pre class="sourceCode r"><code class="sourceCode r">ameco %&gt;%<span class="st"> </span>
-<span class="st">  </span>dplyr::<span class="kw">filter</span>(sub.chapter ==<span class="st"> &quot;01 Population&quot;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(sub.chapter ==<span class="st"> &quot;01 Population&quot;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span>.$title %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">unique</span>()</code></pre>
 <pre><code>## [1] &quot;Total population (National accounts)&quot;
@@ -102,9 +102,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 ## [4] &quot;Population: 15 to 64 years&quot;          
 ## [5] &quot;Population: 65 years and over&quot;</code></pre>
 <p>Being interested in the total population of a few countries, we can easily subset the data and plot the results:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-
-ameco %&gt;%<span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
+<pre><code>## Warning: package 'ggplot2' was built under R version 3.2.3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">ameco %&gt;%<span class="st"> </span>
 <span class="st">  </span>dplyr::<span class="kw">filter</span>(title ==<span class="st"> &quot;Total population&quot;</span>,
          year ==<span class="st"> </span><span class="dv">2015</span>,
          cntry %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;USA&quot;</span>, <span class="st">&quot;JPN&quot;</span>, <span class="st">&quot;DEU&quot;</span>, <span class="st">&quot;FRA&quot;</span>, <span class="st">&quot;ESP&quot;</span>, <span class="st">&quot;ITA&quot;</span>)) %&gt;%<span class="st"> </span>
